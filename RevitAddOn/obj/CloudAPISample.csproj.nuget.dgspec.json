@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\repos\\forge-rcw.file.migration-revit.addon\\RevitAddOn\\CloudAPISample.csproj": {}
+  },
+  "projects": {
+    "C:\\repos\\forge-rcw.file.migration-revit.addon\\RevitAddOn\\CloudAPISample.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\repos\\forge-rcw.file.migration-revit.addon\\RevitAddOn\\CloudAPISample.csproj",
+        "projectName": "CloudAPISample",
+        "projectPath": "C:\\repos\\forge-rcw.file.migration-revit.addon\\RevitAddOn\\CloudAPISample.csproj",
+        "packagesPath": "C:\\Users\\erafferty\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\forge-rcw.file.migration-revit.addon\\RevitAddOn\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\erafferty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Autodesk.Forge": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Microsoft.WindowsAPICodePack-Shell": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "System.Runtime.Serialization.Json": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

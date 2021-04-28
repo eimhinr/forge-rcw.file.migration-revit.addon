@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CloudAPISample</name>
+    </assembly>
+    <members>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Application">
+            <summary>
+               Main external application class.
+               A generic menu generator application.
+               Read a text file and add entries to the Revit menu.
+               Any number and location of entries is supported.
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Application.OnShutdown(Autodesk.Revit.UI.UIControlledApplication)">
+            <summary>
+               Implement this method to implement the external application which should be called when
+               Revit is about to exit,Any documents must have been closed before this method is called.
+            </summary>
+            <param name="application">
+               An object that is passed to the external application
+               which contains the controlled application.
+            </param>
+            <returns>
+               Return the status of the external application.
+               A result of Succeeded means that the external application successfully shutdown.
+               Cancelled can be used to signify that the user cancelled the external operation at
+               some point.
+               If false is returned then the Revit user should be warned of the failure of the external
+               application to shut down correctly.
+            </returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Application.OnStartup(Autodesk.Revit.UI.UIControlledApplication)">
+            <summary>
+               Implement this method to implement the external application which should be called when
+               Revit starts before a file or default template is actually loaded.
+            </summary>
+            <param name="application">
+               An object that is passed to the external application
+               which contains the controlled application.
+            </param>
+            <returns>
+               Return the status of the external application.
+               A result of Succeeded means that the external application successfully started.
+               Cancelled can be used to signify that the user cancelled the external operation at
+               some point.
+               If false is returned then Revit should inform the user that the external application
+               failed to load and the release the internal reference.
+            </returns>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.RunSampleCommand">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.RunSampleCommand.Execute(Autodesk.Revit.UI.ExternalCommandData,System.String@,Autodesk.Revit.DB.ElementSet)">
+            <inheritdoc />
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.RunSampleCommand.IsCommandAvailable(Autodesk.Revit.UI.UIApplication,Autodesk.Revit.DB.CategorySet)">
+            <inheritdoc />
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.Coroutine">
+            <summary>
+               Represent a coroutine instance.
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.Coroutine.#ctor(System.Collections.IEnumerator)">
+            <summary>
+               Create a coroutine with a enumerator
+            </summary>
+            <param name="coroutine"></param>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.Coroutine.IsFinished">
+            <summary>
+               Indicates if this coroutine is finished.
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.Coroutine.Previous">
+            <summary>
+               The previous coroutine in this double linked list
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.Coroutine.Next">
+            <summary>
+               The next coroutine in this double linked list
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.Coroutine.ExecuteOnStep">
+            <summary>
+               Execute one step of the enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.CoroutineScheduler">
+            <summary>
+               A simple coroutine scheduler.
+               This coroutine scheduler allows for control over the execution regime
+               of a set of coroutines.
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.CoroutineScheduler.Run">
+            <summary>
+               Attach a scheduler to render loop.
+               Must be called before using coroutine.
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.CoroutineScheduler.Stop">
+            <summary>
+               Stop a scheduler. All coroutines will be released.
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Coroutine.CoroutineScheduler.StartCoroutine(System.Collections.IEnumerator)">
+            <summary>
+               Start a new coroutine with an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.Item">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.GetHubsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.GetProjectsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hubId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.GetTopFoldersAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hubId"></param>
+            <param name="projectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.GetFolderContentsAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="projectId"></param>
+            <param name="folderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.GetItemVersionsAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="projectId"></param>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.DataManagement.DownloadFile(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="projectId"></param>
+            <param name="itemId"></param>
+            <param name="outputFolder"></param>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Forge.User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Forge.User.FirstName">
+            <summary>
+            
+            
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Forge.User.LastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.User.GetUserProfileAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Forge.ThreeLeggedToken.TokenData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.ThreeLeggedToken.GenerateToken(Revit.SDK.Samples.CloudAPISample.CS.Forge.ThreeLeggedToken.TokenData)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Forge.ThreeLeggedToken.GetToken">
+            <summary>
+            
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Forge.ThreeLeggedToken.TokenInitialized">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.FolderLocation">
+            <summary>
+               Represents a folder on BIM360 site.
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.FolderLocation.Name">
+            <summary>
+               Folder's name
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.FolderLocation.Urn">
+            <summary>
+               Folder's urn
+            </summary>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationRule">
+            <summary>
+               Indicates where to migrate models
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationRule.Pattern">
+            <summary>
+               The search string to match against the names of files, but it doesn't support regular expression.
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationRule.Target">
+            <summary>
+               The target folder on BIM360
+            </summary>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.IMigrationModel">
+            <summary>
+               Interface of a view model for migration sample.
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.IMigrationModel.AccountGuid">
+            <summary>
+               Indicates the target BIM360 account guid
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.IMigrationModel.ProjectGuid">
+            <summary>
+               Indicates the target BIM360 project guid
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.IMigrationModel.AvailableFolders">
+            <summary>
+               Provide all candidate folders which we can upload to.
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.IMigrationModel.Rules">
+            <summary>
+               The collection for <see cref="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationRule" />.
+               Items with lower index in collection have higher priority.
+            </summary>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360">
+            <summary>
+               This is a sample shows how to migrate A360 Teams project to BIM360 Docs
+               with Revit Cloud API
+            </summary>
+        </member>
+        <member name="F:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.FModelsGuid">
+            <summary>
+               File name to store models' guid info.
+            </summary>
+        </member>
+        <member name="F:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.FLinksInfo">
+            <summary>
+               File name to store linked models' info
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.#ctor">
+            <summary>
+               Default constructor
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.Model">
+            <summary>
+               Model for migration case
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.Terminate">
+            <inheritdoc />
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.Upload(System.String,System.Guid,System.Guid,System.Collections.ObjectModel.ObservableCollection{Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationRule})">
+            <summary>
+               User coroutine to update UI during processing.
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360.ReloadLinks(System.String,System.Guid)">
+            <summary>
+               Try to open each cloud model and reload if they have links,
+               making that point to cloud path.
+            </summary>
+            <param name="directory">Transit directory where cloud models exist</param>
+            <param name="projectId">not used</param>
+            <returns></returns>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.UIMigrationViewModel">
+            <summary>
+               Provide user BIM360 project information and configuration for this sample.
+               Can be modified via ViewInputMigrationInfo dialog
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.UIMigrationViewModel.AvailableFolders">
+            <inheritdoc />
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.UIMigrationViewModel.Rules">
+            <inheritdoc />
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.UIMigrationViewModel.AccountGuid">
+            <inheritdoc />
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.Migration.UIMigrationViewModel.ProjectGuid">
+            <inheritdoc />
+        </member>
+        <member name="E:Revit.SDK.Samples.CloudAPISample.CS.Migration.UIMigrationViewModel.PropertyChanged">
+            <summary>
+               Indicates target folder has been changed in this case.
+            </summary>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.SampleContext">
+            <summary>
+               Base class for each sample context in samples portal.
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.SampleContext.View">
+            <summary>
+               The root node for this sample
+            </summary>
+        </member>
+        <member name="P:Revit.SDK.Samples.CloudAPISample.CS.SampleContext.Application">
+            <summary>
+               Gives each sample the ability to access Revit application
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.SampleContext.Terminate">
+            <summary>
+               Terminate this sample context, resource allocated should be released here
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.SampleEngine.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.View.ViewSamplePortal">
+            <summary>
+               Interaction logic for ViewSamplePortal.xaml
+            </summary>
+            <summary>
+            ViewSamplePortal
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewSamplePortal.#ctor(Autodesk.Revit.UI.UIApplication)">
+            <summary>
+               Constructor for ViewSamplePortal
+               ViewSamplePortal is a child window aggregating all sample case with tabs
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewSamplePortal.AddTab(System.String,System.Windows.Controls.UserControl)">
+            <summary>
+               Add a sample tab
+            </summary>
+            <param name="title">The sample title</param>
+            <param name="control">The root control for this sample</param>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewSamplePortal.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360">
+            <summary>
+               Interaction logic for ViewMigrationToBim360.xaml
+            </summary>
+            <summary>
+            ViewMigrationToBim360
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.#ctor(Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360)">
+            <summary>
+               The view for <see cref="T:Revit.SDK.Samples.CloudAPISample.CS.Migration.MigrationToBim360" />
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.UpdateUploadingProgress(System.String,System.Int32)">
+            <summary>
+               Update progress for uploading process.
+            </summary>
+            <param name="status">Text prompt to indicate the process</param>
+            <param name="progress">The percentage progress, from 0 to 100</param>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.UpdateReloadingProgress(System.String,System.Int32)">
+            <summary>
+               Update progress for reloading process
+            </summary>
+            <param name="status">Text prompt to indicate the process</param>
+            <param name="progress">The percentage progress, from 0 to 100</param>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.GenerateTokenCallback">
+            <summary>
+            
+            
+            </summary>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.addTreeViewItems(System.Windows.Controls.TreeViewItem)">
+            <summary>
+            
+            </summary>
+            <param name="rootItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.downloadFilesFromFolder(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="projectId"></param>
+            <param name="folderId"></param>
+            <param name="outputFolder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Revit.SDK.Samples.CloudAPISample.CS.View.ViewMigrationToBim360.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
